@@ -1,38 +1,34 @@
 // set up your var
-var past = $('#hour-back');
-var present =  $('#hour-present');
-var future =  $('#hour-ahead');
+var past = $('#past');
+var present =  $('#present');
+var future =  $('#future');
 var timeDisplay = $('#currentDay');
-var saveButton = $('#save-btn')
+var saveBtn = $('.save-Btn')
 var textData= $('#textInfo')
+var texMes = [];
 
-
+// TODO: Add code to display the current date in the header of the page.
+// time display 
 function displayTime() {
   var rightNow = dayjs().format('MM DD, YYYY[at] hh: mm ss a');
   timeDisplay.text(rightNow);
 }
 
 
+
 //set local storage
+function getTexmes(){
+  texMes = JSON.parse(localStorage.getItem("texMes"))
+}
 
-saveButton.addEventListener('click', function(e) {
-  e.preventDefault();
-
-var dataInput = {
-textData: textData.value
-};
-
-localStorage.setItem('dataInput', JSON.stringify(dataInput));
-renderMesage();
-});
-console.log(dataInput)
+// make a for loop for all the buttons 
 
 
 
 
-// localStorage.setItem('', JSON.stringify(''))
 
-function 
+
+
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
@@ -47,7 +43,10 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-
+  // saveButton.on('click', function () {
+  //  var enter= $(this).textData().val;
+  //  var time = $(this).textData().val;
+  // });
 
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -61,10 +60,12 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+if (currentTime = hour9 ){
+  hour9.removeClass('past');
+  hour10.removeClass('')
+}
 
-
-  // TODO: Add code to display the current date in the header of the page.
-
+  
   displayTime()
   setInterval(displayTime, 1000);
 });
